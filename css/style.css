@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+#drum-machine{
+  margin-top: 30px;
+}
+.grido{
+  display:grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  align-items:center;
+  grid-gap: 10px;
+}
+
+#display{
+  text-align:center;
+  background-color: rgba(0, 70, 20, 0.7);
+  color: white;
+  font-size:2.2em;
+  padding: 0.3em;
+  grid-column: 1 / 4;
+  margin-bottom: 1.2em;
+  border-radius: 3px;
+}
+.drum-pad{
+  transition: 0.2s all ease;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 2em;
+  color: white;
+  justify-content: center;
+  padding:0.3em;
+  width: 20vmin;
+  line-height: 2em;
+  border-radius: 50%;
+  display: grid;
+}
+.drum-pad:hover{
+  background-color:rgba(0, 70, 20, 0.7);
+  cursor: pointer;
+}
+.heado{
+  text-align:center;
+}
+body{
+  background-color:rgba(182, 209, 181, 1);
+  font-family: 'Josefin Sans', sans-serif;
+}
+#cred{
+  margin-top:30px;
+  grid-column: 1 / 4;
+}

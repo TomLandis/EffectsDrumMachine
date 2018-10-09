@@ -1,0 +1,107 @@
+
+const Credit = ()=>{
+  return <p id="cred">&copy; built in react.js by <a href="https://www.okiwebdesign.us">tom landis</a> October 2018</p>;
+}
+class DrumMachine extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { message: " " };
+    this.pushd = this.pushd.bind(this);
+  }
+  componentWillMount() {
+    document.addEventListener("keydown", event => {
+      const keyName = event.key;
+      let keyName2 = keyName.toUpperCase();
+     let check = ["A", "Q", "W", "E", "S", "D", "Z", "X", "C"];
+      //if clause is just to avoid annoying error generation
+      if (check.includes(keyName2)){
+        let targ = document.getElementById(keyName2);
+      targ.parentNode.click();
+      }
+      
+    });
+  }
+
+  pushd(i) {
+    let v = document.getElementById(i.target.id);
+    let q = document.getElementById(i.target);
+    let par = document.getElementById(i.target.id);
+    let chil = par.firstElementChild;
+    let sound = par.id;
+    chil.play();
+    this.setState({ message: sound });
+  }
+  render() {
+    return (
+      <div className="grido">
+        <div id="display">{this.state.message} &nbsp;</div>
+        <div name="bloop" onClick={this.pushd} className="drum-pad" id="bloop">
+          <audio
+            className="clip"
+            id="Q"
+            src="https://www.dropbox.com/s/u8orl1hc0vxwsyc/strange-fx-kit-35.wav?dl=1"
+          />
+          Q
+        </div>
+        <div onClick={this.pushd} className="drum-pad" id="pooom">
+          <audio
+            className="clip"
+            id="W"
+            src="https://www.dropbox.com/s/bd94kdin8nha5ud/strange-fx-kit-37.wav?dl=1"
+          />W</div>
+        <div onClick={this.pushd} className="drum-pad" id="ping">
+          <audio
+            className="clip"
+            id="E"
+            src="https://www.dropbox.com/s/wnqehiavz2ahqzr/strange-fx-kit-39.wav?dl=1"
+          />E
+        </div>
+        <div onClick={this.pushd} className="drum-pad" id="boo">
+          <audio
+            className="clip"
+            id="A"
+            src="https://www.dropbox.com/s/bldytotimw4bspt/strange-fx-kit-40.wav?dl=1"
+          />A
+        </div>
+        <div onClick={this.pushd} className="drum-pad" id="puhzz">
+          <audio
+            className="clip"
+            id="S"
+            src="https://www.dropbox.com/s/ntv2rao7ygk4vmm/strange-fx-kit-44.wav?dl=1"
+          />S
+        </div>
+        <div onClick={this.pushd} className="drum-pad" id="click">
+          <audio
+            className="clip"
+            id="D"
+            src="https://www.dropbox.com/s/bma0kixl7as7x7h/strange-fx-kit-45.wav?dl=1"
+          />
+          D
+        </div> 
+        <div onClick={this.pushd} className="drum-pad" id="pulse">
+          <audio
+            className="clip"
+            id="Z"
+            src="https://www.dropbox.com/s/1rij1lwufpwsnut/strange-fx-kit-51.wav?dl=1"
+          />Z
+        </div>
+        <div onClick={this.pushd} className="drum-pad" id="quack">
+          <audio
+            className="clip"
+            id="X"
+            src="https://www.dropbox.com/s/zi1oa82zbuwpdg6/strange-fx-kit-65.wav?dl=1"
+          />X</div>
+        <div onClick={this.pushd} className="drum-pad" id="boing">
+          <audio
+            className="clip"
+            id="C"
+            src="https://www.dropbox.com/s/yj8gxjyulyxidxk/strange-fx-kit-66.wav?dl=1"
+          />
+         C</div> 
+        <Credit />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<DrumMachine />, document.getElementById("drum-machine"));
